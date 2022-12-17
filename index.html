@@ -98,8 +98,10 @@
       //Diposit Button
       const dipositBtn = document.getElementById("addDiposit");
       dipositBtn.addEventListener("click", function () {
-        const dipositAmount = document.getElementById("dipositAmount").value;
-        const dipositNumber = parseFloat(dipositAmount);
+        // const dipositAmount = document.getElementById("dipositAmount").value;
+        // const dipositNumber = parseFloat(dipositAmount);
+      
+        const dipositNumber = getInputNumber("dipositAmount");
 
         // const currentDiposit =
         //   document.getElementById("currentDiposit").innerText;
@@ -114,13 +116,18 @@
       //Withdraw Button
       const withdrawBtn = document.getElementById("addWithdraw");
       withdrawBtn.addEventListener("click", function () {
-        const withdrawAmount = document.getElementById("withdrawAmount").value;
-        const withdrawAmountNumber = parseFloat(withdrawAmount);
-
-    
-
+       const withdrawNumber = getInputNumber("withdrawAmount");
+       console.log(withdrawNumber);
       });
+      //withdrwaw and diposit
+      function getInputNumber(id){
+        const amount = document.getElementById(id).value;
+        const amountNumber = parseFloat(amount);
+        return amountNumber;
+   
+      }
 
+      //total balace
       function updateSpanText(id, dipositNumber) {
         const current = document.getElementById(id).innerText;
         const currentNumber = parseFloat(current);
